@@ -1,0 +1,2 @@
+
+* Investigate replacing std::map with something better

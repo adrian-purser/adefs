@@ -1,0 +1,18 @@
+* text eol=lf
+
+*.cpp text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+*.vcxproj.filters text eol=crlf
+
+*.png binary
+*.jpg binary
+*.zip binary
+*.pak binary
+*.ttf binary
+*.bmp binary
+*.ico binary
+
