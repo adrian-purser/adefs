@@ -509,12 +509,12 @@ private:
 class PackageFactoryGCF : public IPackageFactory
 {
 public:
-	std::string						name() const			{return "GCF";}
-	std::string						description() const		{return "Valve GCF (Game Cache File)";}
-	std::vector<std::string>		file_types() const		{std::vector<std::string> v;v.push_back("gcf");return v;}
+	std::string						name() const override			{return "GCF";}
+	std::string						description() const	override	{return "Valve GCF (Game Cache File)";}
+	std::vector<std::string>		file_types() const override		{std::vector<std::string> v;v.push_back("gcf");return v;}
 
-	bool							is_supported(const std::string & path);
-	package_shared_ptr				create_package(const std::string & path);
+	bool							is_supported(const std::string & path) override;
+	package_shared_ptr				create_package(const std::string & path) override;
 };
 
 

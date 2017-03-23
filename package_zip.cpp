@@ -29,7 +29,6 @@
 //*****************************************************************************
 
 #include <exception>
-#include <string.h>
 #include "package_zip.h"
 //#include "debug.h"
 //#include "inflate.h"
@@ -412,7 +411,7 @@ PackageZIP::scan()
 	std::vector<char>	buffer(buffsize+4);
 	zip_central_dir		central_dir;
 
-	memset(&central_dir,0,sizeof(central_dir));
+	std::memset(&central_dir,0,sizeof(central_dir));
 
 	zip_file.seekg(-(std::fstream::off_type)buffsize,std::ios::end);
 	zip_file.read(&buffer[0],buffsize);
@@ -428,7 +427,7 @@ PackageZIP::scan()
 			(pdata[3]==0x06) )
 		{
 			pdata += 4;
-			memcpy(&central_dir,pdata,sizeof_central_dir);
+			std::memcpy(&central_dir,pdata,sizeof_central_dir);
 			found = true;
 		}
 	}
