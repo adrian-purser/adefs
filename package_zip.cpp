@@ -29,6 +29,7 @@
 //*****************************************************************************
 
 #include <exception>
+#include <cstring>
 #include "package_zip.h"
 //#include "debug.h"
 //#include "inflate.h"
