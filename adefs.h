@@ -20,6 +20,7 @@
 #include <string>
 #include <cassert>
 #include <mutex>
+#include <functional>
 
 #define ADEFS_VERSION			0x010000
 #define ADEFS_VERSION_STRING	"1.0.0"

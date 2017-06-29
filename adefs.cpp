@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <functional>
 #include "adefs.h"
 #include "package_fs.h"
 
