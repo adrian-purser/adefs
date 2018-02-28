@@ -254,12 +254,12 @@ MountPoint::load(	const std::string & filename,
 }
 
 size_t
-MountPoint::load(	const std::string &									filename,
-					std::function<void(	fileoffset		offset,
-										const char *	p_buffer,
-										size_t			buffer_size)>	func,
-										char *							p_buffer,
-										size_t							buffer_size )
+MountPoint::load(	const std::string &											filename,
+									const std::function<void(	fileoffset		offset,
+																						const char *	p_buffer,
+																						size_t				buffer_size)>	&func,
+																						char *				p_buffer,
+																						size_t				buffer_size )
 {
 	size_t size = 0;
 
@@ -419,12 +419,12 @@ AdeFS::load(const std::string & filename,
 }
 
 size_t
-AdeFS::load(const std::string &									filename,
-			std::function<void(	fileoffset		offset,
-								const char *	p_buffer,
-								size_t			buffer_size)>	func,
-			char *												p_buffer,
-			size_t												buffer_size	)
+AdeFS::load(const std::string &											filename,
+						const std::function<void(	fileoffset		offset,
+																			const char *	p_buffer,
+																			size_t				buffer_size)>	& func,
+						char *																	p_buffer,
+						size_t																	buffer_size	)
 {
 	return m_root.load(filename,func,p_buffer,buffer_size);
 }
