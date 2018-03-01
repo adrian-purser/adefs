@@ -408,7 +408,7 @@ PackageZIP::scan()
 	//-------------------------------------------------------------------------
 	//	Load the central directory header.
 	//-------------------------------------------------------------------------
-	size_t				buffsize = std::min(filesize,(size_t)(0x0FFFF + sizeof_central_dir + 4));
+	int								buffsize = std::min<int>(filesize,0x0FFFF + sizeof_central_dir + 4);
 	std::vector<char>	buffer(buffsize+4);
 	zip_central_dir		central_dir;
 
@@ -418,14 +418,14 @@ PackageZIP::scan()
 	zip_file.read(&buffer[0],buffsize);
 
 	char *	pdata = &buffer[0] + (buffsize-sizeof_central_dir);
-	bool	found = false;
+	bool		found = false;
 
-	for(size_t i=buffsize-sizeof_central_dir;(i>=0) && !found;--i,--pdata)
+	for(int i=buffsize-static_cast<int>(sizeof_central_dir);(i>=0) && !found;--i,--pdata)
 	{
 		if(	(pdata[0]==0x50) && 
-			(pdata[1]==0x4B) && 
-			(pdata[2]==0x05) && 
-			(pdata[3]==0x06) )
+				(pdata[1]==0x4B) && 
+				(pdata[2]==0x05) && 
+				(pdata[3]==0x06) )
 		{
 			pdata += 4;
 			std::memcpy(&central_dir,pdata,sizeof_central_dir);
