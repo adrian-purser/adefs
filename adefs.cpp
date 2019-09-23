@@ -429,6 +429,27 @@ AdeFS::load(const std::string &											filename,
 	return m_root.load(filename,func,p_buffer,buffer_size);
 }
 
+std::vector<std::uint8_t>	
+AdeFS::load( const std::string & filename )
+{
+	std::vector<std::uint8_t>	data;
+
+	auto p_src = openfile(filename);
+	if(p_src)
+	{
+		auto size = p_src->size();
+		if(size > 0)
+		{
+			data.resize(size);
+			auto readsize = p_src->read(reinterpret_cast<char *>(data.data()),size);
+			if(readsize != size)
+				data.clear();
+		}
+	}
+
+	return data;
+}
+
 
 std::unique_ptr<IFile>
 AdeFS::openfile(const std::string & filename,

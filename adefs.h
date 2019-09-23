@@ -449,6 +449,8 @@ public:
 													return load(filename,func,buffer,sizeof(buffer));
 												}
 
+	std::vector<std::uint8_t>	load( const std::string & filename );
+
 	std::unique_ptr<IFile>		openfile(	const std::string & filename, std::uint32_t		mode = MODE_READ );
 
 	void								register_package_factory(package_factory_shared_ptr p_factory);
