@@ -316,10 +316,12 @@ private:
 	//=========================================================================
 	//	ATTRIBUTES
 	//=========================================================================
-	std::string						m_path;				// The full path to this directory on the host file system.
-	Attributes						m_attributes;		// The attributes for this directory (eg. ATTR_READ, ATTR_WRITE)
-	std::mutex						m_mutex;			// Mutex for exclusive access to the directory.
-	std::map<std::string,FileInfo>	m_files;			// An array of structures that contain information about the files in this directory.
+	std::string											m_path;							// The full path to this directory on the host file system.
+	Attributes											m_attributes;				// The attributes for this directory (eg. ATTR_READ, ATTR_WRITE)
+	std::mutex											m_mutex;						// Mutex for exclusive access to the directory.
+	std::map<std::string,FileInfo>	m_files;						// An array of structures that contain information about the files in this directory.
+
+	bool														m_b_logging = false;
 
 	//=========================================================================
 	//	PRIVATE FUNCTIONS
@@ -331,8 +333,7 @@ private:
 	DirectoryFS & operator=(const DirectoryFS & x);
 
 	int								rescan_file(FileInfo & fileinfo);
-	int								get_fileinfo(	const std::string & filename,
-													FileInfo & out_fileinfo );
+	int								get_fileinfo(	const std::string & filename, FileInfo & out_fileinfo );
 
 	//=========================================================================
 	//	PUBLIC FUNCTIONS
@@ -345,28 +346,18 @@ public:
 	//	NON-INTERFACE FUNCTIONS
 	//-------------------------------------------------------------------------
 	const std::string &				get_path() {return m_path;}
-	int								scan(std::vector<std::string> * p_out_directories = nullptr);
+	int												scan(std::vector<std::string> * p_out_directories = nullptr);
 
 	//-------------------------------------------------------------------------
 	//	INTERFACE FUNCTIONS
 	//-------------------------------------------------------------------------
 
-									// Get the size of the specified file in bytes.
-	size_t							file_size(const std::string & filename);
-
-									// Get the attributes of the specified file.
-	Attributes						file_attr(const std::string & filename);
-
-									// Get the attributes of this directory.
-	Attributes						dir_attr() {return m_attributes;}
-
-									// Test whether the specified file exists.
-	bool							file_exists(const std::string & filename);
-
-	std::vector<std::string>		file_list();
-
-	std::unique_ptr<IFile>			openfile(	const std::string & filename,
-												std::uint32_t		mode = MODE_READ );
+	size_t										file_size(const std::string & filename);
+	Attributes								file_attr(const std::string & filename);
+	Attributes								dir_attr() {return m_attributes;}
+	bool											file_exists(const std::string & filename);
+	std::vector<std::string>	file_list();
+	std::unique_ptr<IFile>		openfile(	const std::string & filename, std::uint32_t mode = MODE_READ );
 
 };
 

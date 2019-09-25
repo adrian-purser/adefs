@@ -120,7 +120,7 @@ MountPoint::mount(const std::string & path,directory_shared_ptr p_dir)
 	//-------------------------------------------------------------------------
 	if(path.empty())
 	{
-		std::cout << "Adding directory to path '" << fullpath() << "'" << std::endl;
+		//std::cout << "Adding directory to path '" << fullpath() << "'" << std::endl;
 		m_directories.push_back(p_dir);
 	}
 	//-------------------------------------------------------------------------
@@ -157,7 +157,7 @@ MountPoint::mount(const std::string & path,directory_shared_ptr p_dir)
 			p_mp = ifind->second;
 		else
 		{
-			std::cout << "    Creating: " << fullpath() << "/" << sub_dir << std::endl;
+			//std::cout << "    Creating: " << fullpath() << "/" << sub_dir << std::endl;
 			try
 			{
 				mountpoint_shared_ptr p_new_mp = std::make_shared<MountPoint>(sub_dir,m_attributes,this);

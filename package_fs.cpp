@@ -380,11 +380,14 @@ DirectoryFS::scan(std::vector<std::string> * p_out_directories)
 						if(!rescan_file(info))
 						{
 							m_files[name] = info;
-							std::cout << "SCAN: " << std::setw(32) << std::left << name;
-							std::cout << std::setw(9) << info.status.st_size << " ";
-							std::cout << (info.attributes & ATTR_READ ? 'R' : '-');
-							std::cout << (info.attributes & ATTR_WRITE ? 'W' : '-');
-							std::cout << " (" << filename << ")" << std::endl;
+							if(m_b_logging)
+							{
+								std::cout << "SCAN: " << std::setw(32) << std::left << name;
+								std::cout << std::setw(9) << info.status.st_size << " ";
+								std::cout << (info.attributes & ATTR_READ ? 'R' : '-');
+								std::cout << (info.attributes & ATTR_WRITE ? 'W' : '-');
+								std::cout << " (" << filename << ")" << std::endl;
+							}
 							++count;
 						}
 					}
