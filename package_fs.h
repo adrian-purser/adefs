@@ -321,7 +321,7 @@ private:
 	std::mutex											m_mutex;						// Mutex for exclusive access to the directory.
 	std::map<std::string,FileInfo>	m_files;						// An array of structures that contain information about the files in this directory.
 
-	bool														m_b_logging = false;
+	bool														m_b_logging = true;
 
 	//=========================================================================
 	//	PRIVATE FUNCTIONS

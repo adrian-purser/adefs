@@ -43,15 +43,15 @@ typedef std::uint32_t	filepos;
 
 enum
 {
-	ATTR_READ	=	0x00001,
+	ATTR_READ		=	0x00001,
 	ATTR_WRITE	=	0x00002,
 	ATTR_RANDOM	=	0x00004,
-	ATTR_DIR	=	0x00008
+	ATTR_DIR		=	0x00008
 };
 
 enum
 {
-	MODE_READ		=	0x00001,
+	MODE_READ			=	0x00001,
 	MODE_WRITE		=	0x00002,
 	MODE_APPEND		=	0x00004,
 	MODE_AT_END		=	0x00008,
@@ -413,9 +413,9 @@ typedef std::weak_ptr<IPackageFactory>		package_factory_weak_ptr;
 class AdeFS
 {
 private:
-	MountPoint											m_root;
-	std::vector<package_shared_ptr>						m_owned_packages;
-	std::vector<package_factory_shared_ptr>				m_package_factories;
+	MountPoint																				m_root;
+	std::vector<package_shared_ptr>										m_owned_packages;
+	std::vector<package_factory_shared_ptr>						m_package_factories;
 	std::map<std::string,package_factory_shared_ptr>	m_package_factories_by_type;
 
 	AdeFS(const AdeFS & x);
