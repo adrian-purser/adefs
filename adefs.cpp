@@ -269,7 +269,7 @@ MountPoint::load(	const std::string &											filename,
 	{
 		while(!p_file->is_eof() && !p_file->is_fail())
 		{
-			size_t sizeread = p_file->read(p_buffer,buffer_size);
+			ssize_t sizeread = p_file->read(p_buffer,buffer_size);
 			if((sizeread != EOF) && (sizeread != 0))
 			{
 				func(static_cast<fileoffset>(size),p_buffer,sizeread);
