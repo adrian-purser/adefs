@@ -1,8 +1,9 @@
 set(SOURCES
-	adefs.cpp
-	package_fs.cpp
-	package_gcf.cpp
-	package_zip.cpp
+	adefs/adefs.cpp
+	adefs/package_fs.cpp
+	adefs/package_gcf.cpp
+	adefs/package_zip.cpp
 )
 
 add_library(adefs STATIC ${SOURCES})
+target_include_directories(adefs PUBLIC ${CMAKE_CURRENT_LIST_DIR})

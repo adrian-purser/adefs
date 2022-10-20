@@ -1,12 +1,12 @@
 //=============================================================================
-//	FILE:			adefs.h
-//	SYSTEM:			Ade's Virtual File System
+//	FILE:					adefs.h
+//	SYSTEM:				Ade's Virtual File System
 //	DESCRIPTION:	
 //-----------------------------------------------------------------------------
 //  COPYRIGHT:		(C) Copyright 2013-2017 Adrian Purser. All Rights Reserved.
-//	LICENCE:		MIT - See LICENSE file for details
+//	LICENCE:			MIT - See LICENSE file for details
 //	MAINTAINER:		Adrian Purser <ade@adrianpurser.co.uk>
-//	CREATED:		22-JUL-2013 Adrian Purser <ade@adrianpurser.co.uk>
+//	CREATED:			22-JUL-2013 Adrian Purser <ade@adrianpurser.co.uk>
 //=============================================================================
 #ifndef GUARD_ADEFS_H
 #define GUARD_ADEFS_H
